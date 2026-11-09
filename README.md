@@ -1,18 +1,14 @@
-# Mercedes-Benz Regression Pipeline
+# Mercedes-Benz: Test-Bench Duration
 
-A CPU regression pipeline that makes category handling, ensemble selection and error accounting explicit—and verifies that delivered predictions come from the evaluated models.
+A useful test-time estimate can help a manufacturing team plan around vehicle complexity. The [Mercedes-Benz challenge](https://www.kaggle.com/c/mercedes-benz-greener-manufacturing) asks for testing-duration predictions from anonymized configuration features. This solution combines fold-fitted categorical preprocessing with Ridge, Random Forest and Extra Trees models in a CPU workflow.
 
-This revisits Chia-Ta Tsai's 2017 [Mercedes-Benz Greener Manufacturing](https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing) scripts as an ML engineering / MLOps consumer case study. The task predicts test-bench duration from anonymized vehicle features, using the competition's R² metric. The implementation keeps conventional Ridge, Random Forest and Extra Trees models and a predeclared equal mean.
+The fixed blend reaches **0.54849 OOF R²**. Appending SVD coordinates raises it to **0.55007**, but Extra Trees benefits while Random Forest worsens; the baseline Random Forest remains stronger than either blend at **0.55527**. Estimator-specific representation matters more here than adding complexity to every model.
 
-## Why category handling is a delivery contract
+The [problem and value discussion](docs/problem-and-value.md) connects duration estimates to capacity planning, long-delay risk and the operating measures needed to establish a business benefit. The implementation retains fitted preprocessing and all **60 pipelines** across the two experiments so their predictions can be independently reconstructed.
 
-The official inputs contain 4,209 training and 4,209 test observations, with 376 predictors. **24 test rows contain a category absent from the full training input.** Fitting a vocabulary on combined train/test data would conceal that delivery condition. Each fold instead fits its own encoder and records how unknown categories are transformed; the same fitted preprocessing travels with its saved model. Unlabeled test rows do not establish prediction quality on those new categories.
+[Controlled comparison](docs/modeling-study.md) · [Results](docs/results.md) · [Run the solution](#reproduce-on-cpu)
 
-## Why a regression score needs its population
-
-The target has a long upper tail. A single maximum contributes about 4% of total target variation. That fact alone does not identify a model's largest error: the analysis separately measures retained OOF residuals, fold denominators and pooled R². All official training rows remain in evaluation. A model score, a mean fold score and a retrospectively filtered score are different claims.
-
-## Recorded evidence
+## Models and results
 
 The fixed baseline reaches **0.54849 pooled OOF R²**, with RMSE **8.51883**. Adding 16 SVD coordinates changes blend R² to **0.55007** and slightly worsens MAE; effects differ across estimators. Baseline Random Forest scores **0.55527**, stronger than either blend. The declared recipe is retained rather than optimizing weights against the reported OOF labels. [Controlled comparison](docs/modeling-study.md).
 
@@ -20,11 +16,13 @@ All **60 saved pipelines** across the two recipes reconstruct their retained OOF
 
 The historical account's best public score **0.55833** corresponds to approximately **top 43.49%** of the dated public leaderboard snapshot. The modern native figures above are OOF results, with no inferred leaderboard percentile. [Score context and limits](docs/results.md).
 
-## From evaluated experiment to delivered predictions
+## Handling unseen configurations
 
-Training fits vocabulary and transforms inside each fold, and the saved pipeline owns that state at inference. Verification checks input/schema/model identities; evaluation independently reconstructs the predictions. A local completed run survives tracking unavailability: explicit import recovery reuses its logical identity and checks remote artifact bytes before completion. [Consumer contract](docs/consumer-contract.md) · [Architecture](docs/architecture.md).
+The official inputs contain 4,209 training and 4,209 test observations, with 376 predictors. **24 test rows contain a category absent from the full training input.** Fitting a vocabulary on combined train/test data would conceal that delivery condition. Each fold instead fits its own encoder and records how unknown categories are transformed; the same fitted preprocessing travels with its saved model. Unlabeled test rows do not establish prediction quality on those new categories.
 
-The shared platform owns service operations. This repository consumes those services and remains runnable offline; there is no production manufacturing service or automatic retraining claim. The original source and attribution remain in [legacy/](legacy/README.md). [Changes from 2017](docs/migration.md).
+## Understanding long-delay errors
+
+The target has a long upper tail. A single maximum contributes about 4% of total target variation. That fact alone does not identify a model's largest error: the analysis separately measures retained OOF residuals, fold denominators and pooled R². All official training rows remain in evaluation. A model score, a mean fold score and a retrospectively filtered score are different claims.
 
 ## Reproduce on CPU
 
@@ -52,6 +50,16 @@ JupyterLab is available at http://127.0.0.1:8893/lab with the ignored `.local/ju
 The [offline Kaggle entry](notebooks/kaggle/rerun.ipynb) installs a verified code wheel and trains the same package against the attached competition input, retaining actual hosted versions and a portable run bundle. [Kaggle delivery](docs/kaggle.md).
 
 `src/mercedes/` owns the implementation; `configs/` fixes recipes; `notebooks/` explains and executes them; `docs/` retains results and decisions; `tests/` checks contracts; `docker/` owns client environments. Data, weights, private row-level predictions and credentials stay outside Git.
+
+## From saved models to predictions
+
+Training fits vocabulary and transforms inside each fold, and the saved pipeline owns that state at inference. Verification checks input/schema/model identities; evaluation independently reconstructs the predictions. A local completed run survives tracking unavailability: explicit import recovery reuses its logical identity and checks remote artifact bytes before completion. [Consumer contract](docs/consumer-contract.md) · [Architecture](docs/architecture.md).
+
+The shared platform owns service operations. This repository consumes those services and remains runnable offline; there is no production manufacturing service or automatic retraining claim. The original source and attribution remain in [legacy/](legacy/README.md). [Changes from 2017](docs/migration.md).
+
+## Use the saved model
+
+The [model packaging and serving guide](docs/serving.md) explains the actual input/output contract, export from saved artifacts and the shared HTTP parity check. A canary release retains the tested source, dependency lock and aggregate verification evidence; private model weights and request rows are not release assets.
 
 ## License
 

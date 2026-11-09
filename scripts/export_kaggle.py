@@ -39,7 +39,7 @@ def export(output, owner="cttsai"):
     source = {
         "schema_version": 1,
         "project_id": PROJECT_ID,
-        "repository": "https://github.com/cttsai1985/kaggle-mercedes-benz-solution-mlops",
+        "repository": "https://github.com/cttsai1985/kaggle-mercedes-benz",
         "wheel": wheel.name,
         "wheel_sha256": sha256(wheel),
         "source": source_identity(),
