@@ -20,6 +20,12 @@ The historical account's best public score **0.55833** corresponds to approximat
 
 The official inputs contain 4,209 training and 4,209 test observations, with 376 predictors. **24 test rows contain a category absent from the full training input.** Fitting a vocabulary on combined train/test data would conceal that delivery condition. Each fold instead fits its own encoder and records how unknown categories are transformed; the same fitted preprocessing travels with its saved model. Unlabeled test rows do not establish prediction quality on those new categories.
 
+## Use the saved model
+
+The [model packaging and serving guide](docs/serving.md) explains the actual input/output contract, export from saved artifacts and the shared HTTP parity check. A canary release retains the tested source, dependency lock and aggregate verification evidence; private model weights and request rows are not release assets.
+
+[Real-model canary verification](docs/canary-validation.json) records the source, package/runtime identity, native-to-HTTP parity and rejected invalid request.
+
 ## Understanding long-delay errors
 
 The target has a long upper tail. A single maximum contributes about 4% of total target variation. That fact alone does not identify a model's largest error: the analysis separately measures retained OOF residuals, fold denominators and pooled R². All official training rows remain in evaluation. A model score, a mean fold score and a retrospectively filtered score are different claims.
@@ -56,10 +62,6 @@ The [offline Kaggle entry](notebooks/kaggle/rerun.ipynb) installs a verified cod
 Training fits vocabulary and transforms inside each fold, and the saved pipeline owns that state at inference. Verification checks input/schema/model identities; evaluation independently reconstructs the predictions. A local completed run survives tracking unavailability: explicit import recovery reuses its logical identity and checks remote artifact bytes before completion. [Consumer contract](docs/consumer-contract.md) · [Architecture](docs/architecture.md).
 
 The shared platform owns service operations. This repository consumes those services and remains runnable offline; there is no production manufacturing service or automatic retraining claim. The original source and attribution remain in [legacy/](legacy/README.md). [Changes from 2017](docs/migration.md).
-
-## Use the saved model
-
-The [model packaging and serving guide](docs/serving.md) explains the actual input/output contract, export from saved artifacts and the shared HTTP parity check. A canary release retains the tested source, dependency lock and aggregate verification evidence; private model weights and request rows are not release assets.
 
 ## License
 

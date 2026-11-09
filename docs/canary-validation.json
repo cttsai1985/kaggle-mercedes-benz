@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "release": "v0.2.0-canary.1",
+  "package_version": "0.2.0.dev1",
+  "status": "verified_real_model_canary",
+  "adapter_source_commit": "907438c508637c2f97da86f9a5bc0da2d1845b7a",
+  "adapter_source_dirty_at_export": false,
+  "controller_source_commit": "f6d9fe64aeec6aec04edca3e368875a7a3b270fe",
+  "client_lock_sha256": "042ca612dab507564282aef7416cd72f644d94f67f1306cf3feab1cbc3c66431",
+  "producer_manifest_sha256": "de7a7c3548f4ef7bef5918e19d5ab62effe9dbd75958478e6aeb5c1e9df6d3e1",
+  "model_training_repeated": false,
+  "quality_evaluation_reference": "results.md",
+  "validation_scope": "A small real-input inference parity and input-contract check; existing full-data evaluation remains separately recorded.",
+  "unit_tests_passed": 11,
+  "http_verification": {
+    "started_at": "2026-11-09T16:27:00.180356+00:00",
+    "finished_at": "2026-11-09T16:27:06.954736+00:00",
+    "engine": "MLflow Model Serving",
+    "model_package_sha256": "f6aa78b52f302ad78e25731c588b4b4e7d3fdb82856dc2ac806865508075ebf4",
+    "controller_sha256": "c217c809003ea189485f127bbe305d57c2e0e6695335eb905156fdb49019fe5a",
+    "runtime": {
+      "python": "3.12.16",
+      "mlflow": "3.18.0"
+    },
+    "runtime_packages_sha256": "ab75f1fa3b19dde0b329b387fe4d1305bece177fc99159056b1af9b99767455a",
+    "request_sha256": "53d4558fb660138bae7fbce5b4c1522d2970b4fce0a0ba82a151e03186c92d86",
+    "expected_sha256": "ca2aa12e4ba1db3e576b7ec9a55248bc6ff2471aec70a6975aa5c699cb3d31ea",
+    "health_status": 200,
+    "parity": {
+      "numeric_values": 4,
+      "maximum_absolute_error": 2.842170943040401e-14,
+      "atol": 1e-10,
+      "rtol": 0.0
+    },
+    "prediction_rows": 4,
+    "schema_rejection": {
+      "status": 400,
+      "scope": "client_supplied_invalid_request"
+    },
+    "prediction_parity": true,
+    "package_integrity_verified": true,
+    "cleanup_complete": true,
+    "declared_digest_checked": true,
+    "production_ingress_verified": false,
+    "container_image_verified": false,
+    "zero_downtime_claimed": false,
+    "shared_services_modified": false
+  },
+  "private_assets_published": false,
+  "model_boundary": "predeclared equal-mean baseline: 30 fold/family/seed pipelines"
+}
