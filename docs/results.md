@@ -1,5 +1,7 @@
 # Measured results and their scope
 
+[Hard-case diagnostics and next experiments](error-analysis.md) · [Acceptance audit](requirements-audit.md)
+
 The native full-data baseline fits 30 fold pipelines across five fixed partitions, two model seeds and three conventional families. It retains all 4,209 training rows and predicts all 4,209 test IDs. The producer is clean source commit `6530d167ca38262c1e2e1a22ffb301db14a31b2e`.
 
 | Native pooled OOF result | R² | RMSE | MAE |

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mercedes-benz-pipeline"
-version = "0.2.0.dev1"
+version = "0.2.0.dev2"
 description = "Vehicle test-bench duration prediction with fold-local CPU ensembles"
 readme = "README.md"
 
@@ -13,7 +13,7 @@ license = "MIT"
 dependencies = ["numpy>=2,<3", "pandas>=2.2,<4", "scikit-learn>=1.6,<2", "joblib>=1.4,<2", "threadpoolctl>=3.5,<4"]
 
 [project.urls]
-Repository = "https://github.com/cttsai1985/kaggle-mercedes-benz"
+Repository = "https://github.com/cttsai1985/kaggle-mercedes-benz-solution"
 
 [project.scripts]
 mercedes = "mercedes.cli:main"

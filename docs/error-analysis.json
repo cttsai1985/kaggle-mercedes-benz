@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "project_id": "mercedes-benz",
+  "analysis_kind": "retained_oof_hard_cases",
+  "producer_manifest_sha256": "de7a7c3548f4ef7bef5918e19d5ab62effe9dbd75958478e6aeb5c1e9df6d3e1",
+  "producer_source": {
+    "python_source_sha256": "0734d5b1e1f1272cc96d41995ae60496bf6826e557d563de9e873774e7c0d313",
+    "package_version": "0.1.0",
+    "git_commit": "6530d167ca38262c1e2e1a22ffb301db14a31b2e",
+    "git_dirty": false
+  },
+  "input_sha256": {
+    "train.csv": "6d6016d51b25bf4b112640786f85f41e88c3740baf82663d636a237f8965ea8f",
+    "test.csv": "755589da6a3c525ca0582c6ea119883989cd2f68cfa1df6487c7d07882472169",
+    "sample_submission.csv": "ebab85be78b70b4f61a74bb2797a4b3672829e2d731b140b8bdce95c6f974e80"
+  },
+  "split_sha256": "21f65c9280c3a38bc842897b57b09fe79239b54e635e9a829b8ac903e2382d77",
+  "oof_sha256": "a7703cb3998d3545aa12e4dce82d86bd5f7d71f33ac886b5fb8d0f958b199b4d",
+  "analyzer_sha256": "ff07b1544790066ff5d249ca5a0287f5daa4eab09cf5bf769a3250d778f12ad7",
+  "prediction_reconciliation": "equal family/seed mean verified",
+  "results": {
+    "rows": 4209,
+    "pooled_oof": {
+      "r2": 0.5484900450001694,
+      "rmse": 8.518833488638947,
+      "mae": 5.4045460030451045,
+      "sse": 305449.3355461213,
+      "sst": 676506.3143430268
+    },
+    "cohort_rule": {
+      "loss": "squared residual",
+      "fraction": 0.05,
+      "count_rule": "ceiling",
+      "tie_break": "retained OOF order"
+    },
+    "hard_cohort": {
+      "rows": 211,
+      "share_of_total_squared_error": 0.6368834269231545,
+      "mean_absolute_error": 26.84072519400616,
+      "mean_signed_residual": 26.121934256245005,
+      "underpredicted_rows": 207,
+      "overpredicted_rows": 4,
+      "hard_rows": 211,
+      "minimum_selected_absolute_error": 15.937741986905152,
+      "mean_target": 127.21175355450237,
+      "mean_prediction": 101.08981929825734,
+      "target_upper_decile_rows": 157
+    },
+    "target_upper_decile": {
+      "threshold_inclusive": 115.25,
+      "rows": 422,
+      "share_of_total_squared_error": 0.62843292381031,
+      "mean_absolute_error": 15.356321075613733,
+      "mean_signed_residual": 15.154946635343286,
+      "underpredicted_rows": 404,
+      "overpredicted_rows": 18,
+      "hard_rows": 157
+    },
+    "folds": [
+      {
+        "fold": 0,
+        "rows": 842,
+        "share_of_total_squared_error": 0.20246522438999587,
+        "mean_absolute_error": 5.485365213553625,
+        "mean_signed_residual": 0.048101733248025844,
+        "underpredicted_rows": 291,
+        "overpredicted_rows": 551,
+        "hard_rows": 44
+      },
+      {
+        "fold": 1,
+        "rows": 842,
+        "share_of_total_squared_error": 0.15503102440914981,
+        "mean_absolute_error": 5.018107550442063,
+        "mean_signed_residual": -0.08047345269447433,
+        "underpredicted_rows": 296,
+        "overpredicted_rows": 546,
+        "hard_rows": 33
+      },
+      {
+        "fold": 2,
+        "rows": 842,
+        "share_of_total_squared_error": 0.1635564064698586,
+        "mean_absolute_error": 5.22828483255879,
+        "mean_signed_residual": 0.5059952919519763,
+        "underpredicted_rows": 339,
+        "overpredicted_rows": 503,
+        "hard_rows": 42
+      },
+      {
+        "fold": 3,
+        "rows": 842,
+        "share_of_total_squared_error": 0.18782690456507856,
+        "mean_absolute_error": 5.524825382814713,
+        "mean_signed_residual": -0.3881776578893425,
+        "underpredicted_rows": 265,
+        "overpredicted_rows": 577,
+        "hard_rows": 43
+      },
+      {
+        "fold": 4,
+        "rows": 841,
+        "share_of_total_squared_error": 0.29112044016591704,
+        "mean_absolute_error": 5.7665770014125854,
+        "mean_signed_residual": 0.19271345558791056,
+        "underpredicted_rows": 283,
+        "overpredicted_rows": 558,
+        "hard_rows": 49
+      }
+    ],
+    "seed_error_overlap": {
+      "seed_ids": [
+        "170904",
+        "170905"
+      ],
+      "hard_rows_per_seed": 211,
+      "intersection_rows": 210,
+      "union_rows": 212,
+      "jaccard": 0.9905660377358491,
+      "ensemble_hard_rows_in_both_seed_cohorts": 210,
+      "mean_absolute_prediction_difference_all_rows": 0.10961169844309628,
+      "mean_absolute_prediction_difference_hard_rows": 0.1240982132803652
+    },
+    "configuration_repetition": {
+      "rows_with_repeated_features": 515,
+      "population_fraction": 0.12235685435970539,
+      "hard_rows_with_repeated_features": 26,
+      "hard_cohort_fraction": 0.12322274881516587,
+      "repeated_rows_with_different_observed_targets": 515,
+      "maximum_observed_target_range_for_identical_features": 58.56000000000002,
+      "interpretation": "Exact observed configuration equality does not establish vehicle identity or leakage."
+    }
+  },
+  "limitations": [
+    "Error-selected diagnostic cohort, not a new test or an improvement.",
+    "Two seeds share one fold plan; overlap does not establish generalization.",
+    "Target tail membership is retrospective, not known from predictions alone.",
+    "No outlier removal, relabelling, retraining, weight search or promotion performed."
+  ]
+}
