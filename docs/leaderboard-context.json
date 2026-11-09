@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "project_id": "mercedes-benz",
+  "source": {
+    "url": "https://www.kaggle.com/competitions/mercedes-benz-greener-manufacturing/leaderboard?tab=public",
+    "kind": "official Kaggle CLI public leaderboard export",
+    "csv_filename": "mercedes-benz-greener-manufacturing-publicleaderboard-2026-11-09T04:12:42.csv",
+    "csv_sha256": "9f068e61d7920054ae0d04e6060730e758b5dc74f4db317e1762b42e941b52a7",
+    "archive_sha256": "c2b5cb13dec903c80fb9d33333f85cff13fb15764f48d5c440a1f02e3d1999a6",
+    "reference_teams": 3824,
+    "retrieved_at": "2026-11-09T04:13:41.123218+00:00"
+  },
+  "method": "Exact Decimal comparison: position=1+strictly better public scores; top share=position/reference team count. No OOF/private percentile inferred; these are score-equivalent reference positions, not awarded ranks.",
+  "historical_scope": "Authenticated account submissions. Filenames/metadata support context but do not prove a preserved source commit exactly produced any saved historical model.",
+  "comparisons": [
+    {
+      "submission": {
+        "ref": 5080178,
+        "fileName": "2017-07-06-10-26_wsum_s0.56145_e8.396.csv",
+        "date": "2017-07-08T03:29:06.143000",
+        "description": "",
+        "status": "SubmissionStatus.COMPLETE",
+        "publicScore": "0.55833",
+        "privateScore": "0.54776"
+      },
+      "score_equivalent_start_position": 1663,
+      "tied_reference_teams": 1,
+      "reference_teams": 3824,
+      "top_percent": 43.48849372384937,
+      "strictly_outperformed_percent": 56.51150627615063
+    },
+    {
+      "submission": {
+        "ref": 5094866,
+        "fileName": "subm2_mean.csv",
+        "date": "2017-07-10T17:22:22.627000",
+        "description": "",
+        "status": "SubmissionStatus.COMPLETE",
+        "publicScore": "0.55631",
+        "privateScore": "0.54957"
+      },
+      "score_equivalent_start_position": 1884,
+      "tied_reference_teams": 2,
+      "reference_teams": 3824,
+      "top_percent": 49.26778242677824,
+      "strictly_outperformed_percent": 50.70606694560669
+    },
+    {
+      "submission": {
+        "ref": 5322692,
+        "fileName": "2017-09-04-20-14_wsum_s0.56167_e8.394.csv",
+        "date": "2017-09-05T00:17:45.470000",
+        "description": "",
+        "status": "SubmissionStatus.COMPLETE",
+        "publicScore": "0.55576",
+        "privateScore": "0.54683"
+      },
+      "score_equivalent_start_position": 1948,
+      "tied_reference_teams": 0,
+      "reference_teams": 3824,
+      "top_percent": 50.94142259414226,
+      "strictly_outperformed_percent": 49.08472803347281
+    }
+  ],
+  "modern_run_scope": "Native OOF only; no modern scored submission is claimed."
+}

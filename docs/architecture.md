@@ -1,0 +1,13 @@
+# Pipeline and artifact boundaries
+
+The CLI and notebook import `mercedes`; the package owns validation, fold-local fitting, evaluation and prediction. `pipeline.py` keeps a compact inspectable workflow rather than duplicating modeling logic in notebooks. `tracking.py` imports verified results; `import_support.py` handles explicit delivery recovery.
+
+For each fixed fold, `ColumnTransformer` fits categorical one-hot encoding and numeric imputation/scaling on training rows. Unknown categories have explicit ignore behavior. Eight categorical and 368 numeric predictors retain input order; ID is identity, not a feature. An optional fitted SVD appends coordinates. Ridge, Random Forest and ExtraTrees then fit the same fold. The predeclared ensemble averages families and seeds; each test predictor also averages retained folds.
+
+A run retains config/schema, actual fold assignments, OOF predictions, test predictions, metrics and all fold pipelines. Its manifest binds logical UUID, source/package hash, input checksums, configuration, split identity, runtime and each artifact hash. Failure preserves a failed status. Completed experiments are immutable evidence; use a fresh directory for a different recipe.
+
+Artifact integrity and scientific reconstruction are separate checks. The verifier rejects incomplete or inconsistent bundles; evaluation joins the exact saved IDs/targets/folds to the recorded raw snapshot, reloads every model and reconstructs both OOF and test predictions. The independent comparison script additionally recomputes per-family/seed/fold metrics and SSE/SST arithmetic directly from retained predictions.
+
+The shared [platform](https://github.com/cttsai1985/mlops-platform) owns naming, service operations and storage. This project consumes those interfaces and preserves offline evidence when they are unavailable. Existing shared services are reused; no permanent service stack is included here. Registry/deployment names are conventions, not evidence of model promotion or a running manufacturing service.
+
+The local `.venv` and Docker lock the scientific environment. A Kaggle wheel runs the same implementation against hosted packages and records the actual versions. New hosted training is a separate run; matching source/input/fold identity does not imply bitwise-identical training or cross-version joblib support. The offline entry keeps code-asset provenance outside the unchanged producer manifest.
