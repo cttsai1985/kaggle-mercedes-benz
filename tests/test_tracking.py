@@ -24,7 +24,7 @@ def test_partial_delivery_requires_explicit_recovery_and_keeps_remote_identity(
     )
     uri = f"sqlite:///{tmp_path / 'tracking.db'}"
     client = mlflow.MlflowClient(tracking_uri=uri)
-    with pytest.raises(ValueError, match="Provision"):
+    with pytest.raises(ValueError, match="authorized MLflow operator"):
         track(run, uri)
     experiment = client.create_experiment(
         "kaggle/mercedes-benz", artifact_location=(tmp_path / "artifacts").as_uri()

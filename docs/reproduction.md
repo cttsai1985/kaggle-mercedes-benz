@@ -47,7 +47,7 @@ The runtime image's entry point is `mercedes`; the Lab target's entry point is J
 
 ## Existing shared services
 
-The platform must provision `kaggle/mercedes-benz` with artifact location `mlflow-artifacts:/projects/mercedes-benz`. Training does not require a server.
+An authorized operator provisions `kaggle/mercedes-benz` through MLflow with the client-declared artifact location `mlflow-artifacts:/projects/mercedes-benz`. These names are owned by this repository; the shared infrastructure needs no project-catalog entry. Training does not require a server.
 
 ```bash
 export MLFLOW_TRACKING_URI=http://127.0.0.1:5500

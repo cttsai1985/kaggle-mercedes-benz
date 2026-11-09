@@ -23,7 +23,10 @@ def track(run_dir, tracking_uri, *, resume=False):
     client = MlflowClient(tracking_uri=tracking_uri)
     experiment = client.get_experiment_by_name("kaggle/mercedes-benz")
     if experiment is None or experiment.lifecycle_stage != "active":
-        raise ValueError("Provision kaggle/mercedes-benz through mlops-platform before importing")
+        raise ValueError(
+            "Experiment kaggle/mercedes-benz must be provisioned by an authorized MLflow operator "
+            "using the client-owned namespace before import"
+        )
     metrics = json.loads((run_dir / "metrics.json").read_text())
     digest = sha256(run_dir / "manifest.json")
     tags = {
