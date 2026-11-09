@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "completed_and_independently_verified",
+  "kernel": "cttsai/kaggle-mercedes-benz-solution-mlops",
+  "kernel_version": 1,
+  "private": true,
+  "internet": false,
+  "accelerator": "none",
+  "code_dataset": "cttsai/kaggle-mercedes-benz-code",
+  "code_dataset_version": 1,
+  "code_asset": {
+    "schema_version": 1,
+    "project_id": "mercedes-benz",
+    "scope": "full-data CPU training, independent same-environment model reload, full test prediction",
+    "code_asset": {
+      "schema_version": 1,
+      "project_id": "mercedes-benz",
+      "repository": "https://github.com/cttsai1985/kaggle-mercedes-benz-solution-mlops",
+      "wheel": "mercedes_benz_pipeline-0.1.0-py3-none-any.whl",
+      "wheel_sha256": "b36abd97496fc3f98ea102f441bc1694e3030bd3e5eaddd939041ce9d72d4bd9",
+      "source": {
+        "python_source_sha256": "0734d5b1e1f1272cc96d41995ae60496bf6826e557d563de9e873774e7c0d313",
+        "package_version": "0.1.0",
+        "git_commit": "b546e846d17364c55fa26a76a10f03ea135d1e77",
+        "git_dirty": false
+      },
+      "lock_sha256": "3d731750409ddc816b60d0621c9eacdd9914fefa888f6bf997a8f8e264544915",
+      "config_sha256": {
+        "config-baseline.json": "33d4d22468fa5a6c7cd5eaa9f85cebe0a5e8754205c05250c0bd94103fa7253a",
+        "config-projection.json": "2d3440a13120af21075ad62661259592dde3fe346c0afc1017792dd6be935863",
+        "config-smoke.json": "d3b8ce8b94adfe8324f592223e974285199abb8dbbcf6403c169f8fdc4b6271a"
+      },
+      "contains_competition_data": false
+    },
+    "source_receipt_sha256": "f5fcf61d8e8d170ac5e277ab46fa7899a1c8ce666bb9d571d015b60188397835",
+    "installed_source": {
+      "python_source_sha256": "0734d5b1e1f1272cc96d41995ae60496bf6826e557d563de9e873774e7c0d313",
+      "package_version": "0.1.0",
+      "git_commit": null,
+      "git_dirty": null
+    },
+    "input_sha256": {
+      "sample_submission.csv": "ebab85be78b70b4f61a74bb2797a4b3672829e2d731b140b8bdce95c6f974e80",
+      "test.csv": "755589da6a3c525ca0582c6ea119883989cd2f68cfa1df6487c7d07882472169",
+      "train.csv": "6d6016d51b25bf4b112640786f85f41e88c3740baf82663d636a237f8965ea8f"
+    },
+    "config_sha256": "33d4d22468fa5a6c7cd5eaa9f85cebe0a5e8754205c05250c0bd94103fa7253a",
+    "producer_manifest_sha256": "43cb935220963c6cf7a2b1b17767e2bdf9f554470fa9dc10328035f970f937ea",
+    "producer_manifest_modified": false,
+    "model_reload": {
+      "status": "verified_model_reload",
+      "models_reloaded": 30,
+      "maximum_prediction_delta": 8.526512829121202e-14,
+      "tolerance": 1e-10,
+      "metrics": {
+        "r2": 0.5485001804654964,
+        "rmse": 8.518737872999631,
+        "mae": 5.404427126516713
+      },
+      "test_rows": 4209,
+      "train_rows": 4209
+    },
+    "submission_rows": 4209,
+    "submission_ids_order_verified": true,
+    "submission_sha256": "0af0a58f1cd9abd6c797f0566b71e14670e145308053e807da02f07230c0170a"
+  },
+  "environment": {
+    "python": "3.13.18",
+    "numpy": "2.1.3",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.6.0"
+  },
+  "logical_run_id": "54d14d73-9662-46bc-ba2c-eda3ed31ad20",
+  "split_sha256": "21f65c9280c3a38bc842897b57b09fe79239b54e635e9a829b8ac903e2382d77",
+  "artifact_hashes_verified": 36,
+  "bundle_bytes_verified": true,
+  "run_bundle_sha256": "e50b0ba10e2507802be84abbffa4831dc84b529b81ec7082798ac2b778f7c0fe",
+  "independent_pooled_oof": {
+    "r2": 0.5485001804654964,
+    "rmse": 8.518737872999631,
+    "mae": 5.404427126516712
+  },
+  "train_rows": 4209,
+  "test_rows": 4209,
+  "same_native_input_split_config_package": true,
+  "native_environment": {
+    "python": "3.12.16",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "native_bitwise_equivalence_claimed": false,
+  "competition_score_submitted": false,
+  "cross_environment_joblib_reload_claimed": false,
+  "shared_tracking": {
+    "experiment": "kaggle/mercedes-benz",
+    "experiment_id": "12",
+    "mlflow_run_id": "d4649e09be2340a5882aa92dfa9a6840",
+    "remote_status": "FINISHED",
+    "remote_artifacts_verified": 37,
+    "artifact_uri": "mlflow-artifacts:/projects/mercedes-benz/d4649e09be2340a5882aa92dfa9a6840/artifacts"
+  }
+}

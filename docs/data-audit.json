@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "input": {
+    "competition": "mercedes-benz-greener-manufacturing",
+    "downloaded_at": "2026-11-09T03:59:49.939778+00:00",
+    "files": {
+      "train.csv": {
+        "sha256": "6d6016d51b25bf4b112640786f85f41e88c3740baf82663d636a237f8965ea8f",
+        "bytes": 3220873,
+        "archive_sha256": "81e9e13205e56ff6bb99d11c0201a6fa76afec48ea34ef6ee78250bc645044b1"
+      },
+      "test.csv": {
+        "sha256": "755589da6a3c525ca0582c6ea119883989cd2f68cfa1df6487c7d07882472169",
+        "bytes": 3194261,
+        "archive_sha256": "7b9549e67e27c5f67ad2e41c7ecb6f57cd6771290ec8501ea0eb3f3b64ed11b5"
+      },
+      "sample_submission.csv": {
+        "sha256": "ebab85be78b70b4f61a74bb2797a4b3672829e2d731b140b8bdce95c6f974e80",
+        "bytes": 92055,
+        "archive_sha256": "77e6dd9783e84b5ca89145a6fbc089f98d789a8ee95750dbad905df366cce2ee"
+      }
+    }
+  },
+  "rows": {
+    "train": 4209,
+    "test": 4209,
+    "sample": 4209
+  },
+  "feature_count": 376,
+  "categorical_features": [
+    "X0",
+    "X1",
+    "X2",
+    "X3",
+    "X4",
+    "X5",
+    "X6",
+    "X8"
+  ],
+  "numeric_feature_count": 368,
+  "constant_training_numeric_features": [
+    "X11",
+    "X93",
+    "X107",
+    "X233",
+    "X235",
+    "X268",
+    "X289",
+    "X290",
+    "X293",
+    "X297",
+    "X330",
+    "X347"
+  ],
+  "constant_train_features_vary_in_test": [
+    "X11",
+    "X93",
+    "X107",
+    "X233",
+    "X235",
+    "X268",
+    "X289",
+    "X290",
+    "X293",
+    "X297",
+    "X330",
+    "X347"
+  ],
+  "unknown_test_categories": {
+    "X0": {
+      "train_levels": 47,
+      "test_levels": 49,
+      "unseen_test_levels": 6,
+      "test_rows_unseen": 6
+    },
+    "X1": {
+      "train_levels": 27,
+      "test_levels": 27,
+      "unseen_test_levels": 0,
+      "test_rows_unseen": 0
+    },
+    "X2": {
+      "train_levels": 44,
+      "test_levels": 45,
+      "unseen_test_levels": 6,
+      "test_rows_unseen": 14
+    },
+    "X3": {
+      "train_levels": 7,
+      "test_levels": 7,
+      "unseen_test_levels": 0,
+      "test_rows_unseen": 0
+    },
+    "X4": {
+      "train_levels": 4,
+      "test_levels": 4,
+      "unseen_test_levels": 0,
+      "test_rows_unseen": 0
+    },
+    "X5": {
+      "train_levels": 29,
+      "test_levels": 32,
+      "unseen_test_levels": 4,
+      "test_rows_unseen": 4
+    },
+    "X6": {
+      "train_levels": 12,
+      "test_levels": 12,
+      "unseen_test_levels": 0,
+      "test_rows_unseen": 0
+    },
+    "X8": {
+      "train_levels": 25,
+      "test_levels": 25,
+      "unseen_test_levels": 0,
+      "test_rows_unseen": 0
+    }
+  },
+  "target": {
+    "mean": 100.66931812782134,
+    "std_ddof1": 12.679381281524673,
+    "quantiles": {
+      "0": 72.11,
+      "0.01": 74.87,
+      "0.05": 85.784,
+      "0.5": 99.15,
+      "0.95": 120.806,
+      "0.99": 137.43040000000002,
+      "1": 265.32
+    },
+    "top1_squared_deviation_share": 0.040073309688617574,
+    "top10_squared_deviation_share": 0.08825062410074112
+  },
+  "contracts": {
+    "train_id_unique": true,
+    "test_id_unique": true,
+    "train_test_id_overlap": 0,
+    "test_sample_id_order_match": true,
+    "feature_order_same": true,
+    "target_in_test": false,
+    "missing_feature_cells_train": 0,
+    "missing_feature_cells_test": 0
+  },
+  "repeated_feature_vectors": {
+    "train_duplicate_rows": 298,
+    "interpretation": "Equal anonymized feature vectors are not proof of the same physical vehicle or a leakage group; rows retain their official ID and no labels are dropped."
+  },
+  "scope": "Descriptive audit only. Target-deviation shares are properties of the R\u00b2 denominator, not measured prediction-error contributions.",
+  "test_rows_with_any_unseen_category": 24
+}

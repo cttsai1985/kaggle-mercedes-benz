@@ -1,0 +1,23 @@
+services:
+  lab:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: lab
+    image: mercedes-lab:0.1
+    ports: ["127.0.0.1:8893:8888"]
+    cpus: 4.0
+    mem_limit: 6g
+    pids_limit: 256
+    environment:
+      MERCEDES_DATA_DIR: /data
+    volumes:
+      - .:/workspace
+      - ${MERCEDES_DATA_DIR:?Set the absolute authorized dataset directory}:/data:ro
+      - ./.local/runs:/outputs
+    secrets: [jupyter_token]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+secrets:
+  jupyter_token:
+    file: .local/jupyter_token

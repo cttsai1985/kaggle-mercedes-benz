@@ -1,0 +1,13 @@
+{
+  "name": "synthetic-contract-fixture",
+  "folds": 3,
+  "split_seed": 904,
+  "model_seeds": [170904],
+  "models": ["ridge", "random_forest", "extra_trees"],
+  "trees": 8,
+  "max_depth": 4,
+  "min_samples_leaf": 2,
+  "ridge_alpha": 10.0,
+  "projection_components": 0,
+  "threads": 1
+}
