@@ -8,6 +8,26 @@ The [problem and value discussion](docs/problem-and-value.md) connects duration 
 
 [Controlled comparison](docs/modeling-study.md) · [Results](docs/results.md) · [Run the solution](#reproduce-on-cpu)
 
+<!-- portfolio-results:start -->
+## Results
+
+**Public leaderboard — R² ↑.**
+
+| Model / submission | Public score | Public reference rank / teams | Top % | Reference ties |
+|---|---:|---:|---:|---:|
+| Historical submission 5080178 (2017-07-08) | 0.55833 | 1,663 / 3,824 | **43.49%** | 1 |
+| Historical submission 5094866 (2017-07-10) | 0.55631 | 1,884–1,885 / 3,824 | **49.27%** | 2 |
+| Historical submission 5322692 (2017-09-05) | 0.55576 | 1,948 / 3,824 | **50.94%** | 0 |
+
+Reference: **2026-11-09T04:12:42Z**, **3,824 unique scored teams**. Ranks are score-equivalent comparisons with the dated public export, not awarded final ranks. Lower Top % is better. A zero tie count denotes an insertion position; ties occupy the shown interval.
+
+**OOF/holdout rank and Top %: not applicable. Private leaderboard rank and Top %: unavailable without a matching private reference population.** Internal validation and private scores remain separately reported in [detailed results](docs/results.md). [Reference data and calculation](docs/leaderboard-context.json).
+<!-- portfolio-results:end -->
+
+## Which delays dominate the error?
+
+The worst 211 of 4,209 retained OOF predictions contribute 63.69% of squared error; 207 underestimate the duration. Almost the same examples recur across training seeds. Repeated feature configurations are not enriched in that cohort, so they do not explain its concentration. This points to a controlled investigation of long-delay underprediction before changing ensemble weights. [Hard-case analysis, competing explanations and next experiment](docs/error-analysis.md).
+
 ## Models and results
 
 The fixed baseline reaches **0.54849 pooled OOF R²**, with RMSE **8.51883**. Adding 16 SVD coordinates changes blend R² to **0.55007** and slightly worsens MAE; effects differ across estimators. Baseline Random Forest scores **0.55527**, stronger than either blend. The declared recipe is retained rather than optimizing weights against the reported OOF labels. [Controlled comparison](docs/modeling-study.md).
