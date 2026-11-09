@@ -1,10 +1,10 @@
 {
   "repository": "cttsai1985/kaggle-mercedes-benz-solution",
-  "verified_utc": "2026-11-09T18:18:18.865301+00:00",
+  "verified_utc": "2026-11-09T19:36:23.424429+00:00",
   "metadata": {
-    "description": "Vehicle test-duration solution. Historical public R² 0.55833: 1,663/3,824 (Top 43.49%, 2026-11-09 snapshot). Modern baseline OOF R² 0.54849 has no leaderboard rank.",
+    "description": "Vehicle test-duration solution. Historical R²: public 0.55833 / private 0.54776 (public Top 43.49%, 2026-11-09 reference). Modern baseline OOF R² 0.54849; no modern scored submission.",
     "name": "kaggle-mercedes-benz-solution",
     "url": "https://github.com/cttsai1985/kaggle-mercedes-benz-solution"
   },
-  "scope": "Public score-equivalent rank against the dated official snapshot; not an awarded final rank."
+  "scope": "Public and private scores are paired per submission; Top % refers only to the dated public reference. Rank/team counts are retained in detailed evidence."
 }

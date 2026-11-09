@@ -1,6 +1,20 @@
 # Requirements audit
 
-Audited **2026-11-09** against [portfolio standard 1.0](portfolio-standard.md).
+## Presentation update — standard 1.1
+
+The current primary display pairs **Public LB** and **Private LB** scores with
+**Public Top %**. Rank/team counts and ties remain in detailed source evidence;
+they are no longer repeated in the README table or GitHub description. Private
+scores do not inherit public percentiles. This supersedes the canary-2 presentation
+format reviewed below; its historical regression and source-preservation review
+remain dated evidence. Local reproducibility may use scientific functions, a
+notebook, script or existing thin command entry point; no bespoke CLI is required.
+The existing canary-2 releases and completed merge/branch cleanup remain intact.
+The original profile/standard are retained at `v0.2.0-canary.2`; the current
+profile receipt records the latest approved compact description.
+
+
+Audited **2026-11-09** against [portfolio standard 1.1](portfolio-standard.md).
 The standard is the accumulated acceptance contract. **Pass** below refers to the
 cited scope; **Open** is accepted work that has not been waived. Historical model,
 evaluation and canary receipts keep their original source identities. The current
@@ -34,8 +48,8 @@ ranking is unavailable without a matching private reference population. See
 |---|---|---|
 | R01 | All accumulated portfolio requirements apply. | **Pass for the review artifact:** this R01–R26 matrix references the versioned [standard](portfolio-standard.md), records scope and retains explicit open items. Correction release closure is not assumed. |
 | R02 | A usable duration-prediction solution is the unit of presentation. | **Pass:** README opening → primary Results → model comparison, unseen-category handling, runnable CPU workflow and saved-model use. [Problem/value](problem-and-value.md), [runbook](reproduction.md) and [serving](serving.md) explain how the output can be inspected and consumed. |
-| R03 | Public scores and their ranking context must stay primary. | **Restored:** README Results covers all retained historical public submissions; the read-back live description pairs the best historical benchmark with rank/N and Top % and labels modern OOF as unranked. The regression's actual scope is documented above. |
-| R04 | R² is maximized; native OOF, hosted OOF and public submissions differ. | **Pass:** [results](results.md), the primary table and [reference JSON](leaderboard-context.json) identify model/run, metric direction, population, snapshot and tie treatment. RMSE/MAE accompany OOF R² in the controlled study. |
+| R03 | Verified compact presentation | Primary README and description retain public/private scores and public Top %. Rank/N and ties stay in linked detailed evidence. |
+| R04 | Verified source scope | The metric/direction and submission are identified; private scores are paired with the same public submission. Detailed evidence retains reference counts, ties and snapshot. |
 | R05 | Official awards, reference positions and evaluation populations must remain separate. | **Pass:** primary Results labels score-equivalent public comparisons and marks OOF/holdout rank non-applicable. Historical private values remain separate and receive no invented private percentile. The modern model does not inherit a historical submission's rank. |
 | R06 | Modern representation/ensemble changes require measured decisions. | **Pass:** [controlled study](modeling-study.md) retains matched baseline/SVD results, family-specific effects, both seeds and every fold. Extra Trees improves while Random Forest worsens; the small blend gain does not justify a universal improvement or post-hoc weight search. |
 | R07 | Hard cases must connect model inputs/representation with prediction failure. | **Pass for retained-OOF diagnosis:** [error analysis](error-analysis.md) follows anonymized configuration inputs, fixed fold pipelines and equal-mean predictions into a fixed high-squared-error cohort, signed underestimation and repeated-feature context. [Aggregate evidence](error-analysis.json) reconciles the full population. Physical causes and missing process variables remain hypotheses. |
@@ -66,7 +80,7 @@ The audit compared exact file bytes through `git show <commit>:<path>`:
 1. **Pre-canary → merged canary/editorial:**
    `a962d2dd596fede27083ace4267862cc72e6d904` →
    `52006c5efbf549bf2be26b0c361e33cdda0a097b`.
-2. **Merged canary/editorial → current correction working tree.**
+2. **Merged canary/editorial → canary-2 correction working tree.**
 
 These enumerated files are byte-identical across both comparisons:
 
@@ -80,14 +94,14 @@ These enumerated files are byte-identical across both comparisons:
 
 `docs/canary-validation.json`, `docs/serving.md` and `src/mercedes/serving.py` were
 added during canary work and remain byte-identical from the merged canary to the
-current correction. Inspectable SHA-256 anchors are:
+canary-2 correction. Inspectable SHA-256 anchors are:
 
 - Modeling-study JSON: `03aa8c4403159c105f5927d30b198d9d56a5d7847936da405f0ba0d63fa49659`.
 - Canary receipt: `6281d5cfc3bae318623fa7d650204cc3a91865b3b41ca1ace1f145996e7c3722`.
 - Training/evaluation module: `4a40bee7f567dae5e793b6ca7f7e7d9ad0d0efdda78c9688561acd27da6262f9`.
 
 `docs/results.md` matched the pre-canary and merged-canary states, but **is not
-byte-identical to the current correction**, which adds explicit public-ranking
+byte-identical to the canary-2 correction**, which adds explicit public-ranking
 context. README, version/URL/export metadata, portfolio-standard/check files and
 new error-analysis files are also outside the preserved set. The correction bumps
 package/lock metadata to `0.2.0.dev2`; earlier receipts retain `0.2.0.dev1` and
