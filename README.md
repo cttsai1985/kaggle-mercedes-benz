@@ -16,7 +16,7 @@ The target has a long upper tail. A single maximum contributes about 4% of total
 
 The fixed baseline reaches **0.54849 pooled OOF R²**, with RMSE **8.51883**. Adding 16 SVD coordinates changes blend R² to **0.55007** and slightly worsens MAE; effects differ across estimators. Baseline Random Forest scores **0.55527**, stronger than either blend. The declared recipe is retained rather than optimizing weights against the reported OOF labels. [Controlled comparison](docs/modeling-study.md).
 
-All **60 saved pipelines** across the two recipes reconstruct their retained OOF and test predictions within the declared tolerance. Native artifacts are also verified through Docker and shared MLflow storage. [Validation receipt](docs/validation.json) · [Executed walkthrough](notebooks/01-method-and-rerun.ipynb).
+All **60 saved pipelines** across the two recipes reconstruct their retained OOF and test predictions within the declared tolerance. Native artifacts are also verified through Docker and shared MLflow storage. A separate offline Kaggle CPU run reaches **0.54850 OOF R²**, reloads all 30 hosted models and delivers its verified bundle to the same tracker. [Validation receipt](docs/validation.json) · [Executed walkthrough](notebooks/01-method-and-rerun.ipynb).
 
 The historical account's best public score **0.55833** corresponds to approximately **top 43.49%** of the dated public leaderboard snapshot. The modern native figures above are OOF results, with no inferred leaderboard percentile. [Score context and limits](docs/results.md).
 

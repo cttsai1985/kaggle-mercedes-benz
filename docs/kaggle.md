@@ -22,3 +22,9 @@ The canonical title matches the kernel slug. The notebook accepts the three offi
 Retain the exact executed notebook version and downloaded `run-bundle.zip`, `code-asset.json`, logs and `submission.csv` privately. Validate hashes and same-environment model reconstruction before importing completed artifacts to an approved shared tracker. Native and hosted runs are separate experiments; compare their recorded input/fold/source identities and package versions before comparing scores.
 
 The validation record distinguishes a prepared entry point, mocked control-flow checks and an actual completed hosted run. No fixture or prepared notebook is presented as full hosted reproduction.
+
+## Recorded execution
+
+Version **1** of `cttsai/kaggle-mercedes-benz-solution-mlops` completed against private code dataset `cttsai/kaggle-mercedes-benz-code`, version **1**. Both assets remain private; the source notebook and aggregate evidence are public in this repository. The [hosted receipt](hosted-validation.json) records the clean source commit, wheel identity, actual scientific environment, full-data model reload, independent metric verification and shared delivery. No competition score was submitted.
+
+During this execution, the private dataset status endpoint returned HTTP 403 although upload succeeded. Authenticated download and exact byte comparison against the staged wheel, source receipt and configs established readiness before notebook push. A status response alone is not treated as artifact verification.

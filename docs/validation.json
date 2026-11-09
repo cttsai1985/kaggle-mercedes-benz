@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "project_id": "mercedes-benz",
+  "scope": "full-data CPU experiments and verified delivery; no production deployment or modern leaderboard score",
+  "native_source": {
+    "python_source_sha256": "0734d5b1e1f1272cc96d41995ae60496bf6826e557d563de9e873774e7c0d313",
+    "package_version": "0.1.0",
+    "git_commit": "6530d167ca38262c1e2e1a22ffb301db14a31b2e",
+    "git_dirty": false
+  },
+  "native_environment": {
+    "python": "3.12.16",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "native_baseline": {
+    "status": "verified_model_reload",
+    "models_reloaded": 30,
+    "maximum_prediction_delta": 9.947598300641403e-14,
+    "tolerance": 1e-10,
+    "metrics": {
+      "r2": 0.5484900450001695,
+      "rmse": 8.518833488638945,
+      "mae": 5.4045460030451045
+    },
+    "test_rows": 4209,
+    "train_rows": 4209
+  },
+  "native_projection": {
+    "status": "verified_model_reload",
+    "models_reloaded": 30,
+    "maximum_prediction_delta": 7.105427357601002e-14,
+    "tolerance": 1e-10,
+    "metrics": {
+      "r2": 0.5500700367652007,
+      "rmse": 8.50391523235252,
+      "mae": 5.406060030512352
+    },
+    "test_rows": 4209,
+    "train_rows": 4209
+  },
+  "docker": {
+    "image": "mercedes-lab:0.1",
+    "image_id": "sha256:fbf220027dd79c340094e7837ba0205557a9b478100841cd51a2a7b5fd855da7",
+    "model_reload": {
+      "status": "verified_model_reload",
+      "models_reloaded": 30,
+      "maximum_prediction_delta": 7.105427357601002e-14,
+      "tolerance": 1e-10,
+      "metrics": {
+        "r2": 0.5484900450001694,
+        "rmse": 8.518833488638947,
+        "mae": 5.4045460030451045
+      },
+      "test_rows": 4209,
+      "train_rows": 4209
+    },
+    "bind_import": "/workspace/src/mercedes",
+    "devcontainer_venv_writable": true
+  },
+  "jupyter_lab": {
+    "unauthenticated_status": 403,
+    "authenticated_status": 200,
+    "loopback_port": 8893,
+    "token_printed": false
+  },
+  "walkthrough": {
+    "executed_cells": 5,
+    "figures_visually_inspected": 3,
+    "errors": 0,
+    "real_models_reloaded": 30
+  },
+  "shared_tracking": {
+    "experiment": "kaggle/mercedes-benz",
+    "experiment_id": "12",
+    "artifact_location": "mlflow-artifacts:/projects/mercedes-benz",
+    "runs": {
+      "baseline": {
+        "status": "already_imported",
+        "mlflow_run_id": "74d2074ef3ce48a78fb4b5a9d5d8a8b3",
+        "remote_artifacts_verified": 37,
+        "remote_status": "FINISHED",
+        "matching_remote_runs": 1,
+        "artifact_uri": "mlflow-artifacts:/projects/mercedes-benz/74d2074ef3ce48a78fb4b5a9d5d8a8b3/artifacts"
+      },
+      "projection": {
+        "mlflow_run_id": "de48e78e954c4ad49f669f9216029e14",
+        "logical_run_id": "10da3ca9-ebe6-43b0-ac36-9d9c3059ff8e",
+        "manifest_sha256": "1331d0556aad5418f1566d6f439e3a8b914d9c4e7ee18664bb011f296555084e",
+        "import_attempt_id": "67e11ef4-ca4f-439b-a8ad-5c933232a7bb",
+        "resumed": false,
+        "status": "imported",
+        "remote_artifacts_verified": 37,
+        "remote_status": "FINISHED",
+        "matching_remote_runs": 1,
+        "artifact_uri": "mlflow-artifacts:/projects/mercedes-benz/de48e78e954c4ad49f669f9216029e14/artifacts"
+      }
+    }
+  },
+  "hosted_receipt": "hosted-validation.json",
+  "automated_tests": {
+    "passed": 10,
+    "scope": "contracts, independent reconstruction, failure recovery and idempotent tracking"
+  },
+  "independent_comparison": {
+    "values_reconciled": 8692,
+    "maximum_absolute_difference": 5.82e-11,
+    "details": "modeling-study.json"
+  },
+  "historical_score_context": "leaderboard-context.json",
+  "limitations": [
+    "Single predeclared five-fold partition, two seeds; no broad split-stability claim.",
+    "Ridge is deterministic: repeated seeds are not independent algorithmic trials.",
+    "Same-environment model reload verified separately; cross-version model portability is not claimed.",
+    "Kaggle runtime uses its own recorded dependencies rather than the native lock.",
+    "Shared service operations belong to the external platform."
+  ]
+}

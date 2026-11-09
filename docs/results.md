@@ -29,3 +29,9 @@ The modern native run has OOF evaluation only at this point; no modern scored co
 ## Runtime and delivery evidence
 
 Docker independently reconstructs the real baseline and enforces authenticated Jupyter API access. Native baseline and projection models are delivered through shared MLflow/SeaweedFS with full artifact-byte verification. Detailed receipts and the hosted-runtime status are retained in the validation record; offline Kaggle execution is a separate experiment, with its actual scientific environment recorded.
+
+## Completed offline Kaggle run
+
+Private notebook version 1 completed full-data CPU training with internet and accelerators disabled. It achieved pooled OOF R² **0.548500**, RMSE **8.518738** and MAE **5.404427**. All 30 models reloaded in their producing environment, with maximum prediction difference 8.53e-14; all 4,209 test IDs match the official submission order. The downloaded bundle, artifact hashes and independently recomputed OOF metrics were verified before shared import.
+
+The code package, official inputs, configuration and fold assignment match the native baseline. Hosted Python 3.13.18 / scikit-learn 1.6.1 differ from native Python 3.12.16 / scikit-learn 1.9.1; the small score difference is recorded without claiming a diagnosed cause or bitwise equivalence. Native models were verified in Docker; hosted models were verified on Kaggle. The hosted bundle also reached FINISHED only after all 37 artifacts were read back from shared MLflow storage. [Hosted receipt](hosted-validation.json). No modern scored competition submission was made.
