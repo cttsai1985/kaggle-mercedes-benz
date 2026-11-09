@@ -13,7 +13,7 @@ import pandas as pd
 from mlflow.models import infer_signature
 from threadpoolctl import threadpool_limits
 
-from mercedes.pipeline import features, sha256, verify_run
+from mercedes.pipeline import features, sha256, source_identity, verify_run
 
 
 class TestDurationModel(mlflow.pyfunc.PythonModel):
@@ -53,6 +53,7 @@ def export_model(run_dir, output, example):
     if output.exists():
         raise ValueError("Serving export already exists; select a fresh output directory")
     manifest = verify_run(run_dir)
+    export_source = source_identity()
     schema = json.loads((run_dir / "schema.json").read_text())
     example = example[schema["columns"]].copy()
     if example.empty:
@@ -74,6 +75,7 @@ def export_model(run_dir, output, example):
             "files": {name: sha256(bundle / name) for name in ["schema.json", *names]},
             "producer_manifest_sha256": sha256(run_dir / "manifest.json"),
             "producer_source": manifest["source"],
+            "export_source": export_source,
             "aggregation": "equal mean of every saved fold/family/seed",
         }
         (bundle / "serving-contract.json").write_text(json.dumps(contract, indent=2) + "\n")
@@ -100,11 +102,13 @@ def export_model(run_dir, output, example):
                 "project_id": "mercedes-benz",
                 "producer_manifest_sha256": contract["producer_manifest_sha256"],
                 "model_count": len(names),
+                "export_source": export_source,
                 "input_boundary": "ordered configuration features; no ID or target",
             },
         )
     return {
         "status": "exported",
+        "export_source": export_source,
         "models": len(names),
         "example_rows": len(example),
         "producer_manifest_sha256": contract["producer_manifest_sha256"],
