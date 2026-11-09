@@ -99,3 +99,11 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Maintained workflow: private experiment artifacts and credentials
+.local/
+.pytest_cache/
+.ruff_cache/
+*.joblib
+*.zip
+kaggle-bundle/

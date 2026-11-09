@@ -1,0 +1,13 @@
+{
+  "name": "fold-local-appended-svd",
+  "folds": 5,
+  "split_seed": 904,
+  "model_seeds": [170904, 170905],
+  "models": ["ridge", "random_forest", "extra_trees"],
+  "trees": 160,
+  "max_depth": 12,
+  "min_samples_leaf": 4,
+  "ridge_alpha": 10.0,
+  "projection_components": 16,
+  "threads": 4
+}

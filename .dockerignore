@@ -1,0 +1,9 @@
+.git
+.venv
+.local
+.pytest_cache
+.ruff_cache
+__pycache__
+*.joblib
+*.zip
+legacy

@@ -1,0 +1,4 @@
+services:
+  lab:
+    volumes:
+      - ${SEAWEED_CLIENT_MOUNT:?Set the existing client mount}:/artifacts:ro

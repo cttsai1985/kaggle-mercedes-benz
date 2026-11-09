@@ -1,0 +1,9 @@
+services:
+  lab:
+    environment:
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+    networks: [mlops_clients]
+networks:
+  mlops_clients:
+    external: true
+    name: ${MLOPS_CLIENT_NETWORK:?Set the approved shared client network}
