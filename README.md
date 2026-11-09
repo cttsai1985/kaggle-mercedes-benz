@@ -11,17 +11,17 @@ The [problem and value discussion](docs/problem-and-value.md) connects duration 
 <!-- portfolio-results:start -->
 ## Results
 
-**Public leaderboard — R² ↑.**
+**Leaderboard scores — R² ↑.**
 
-| Model / submission | Public score | Public reference rank / teams | Top % | Reference ties |
-|---|---:|---:|---:|---:|
-| Historical submission 5080178 (2017-07-08) | 0.55833 | 1,663 / 3,824 | **43.49%** | 1 |
-| Historical submission 5094866 (2017-07-10) | 0.55631 | 1,884–1,885 / 3,824 | **49.27%** | 2 |
-| Historical submission 5322692 (2017-09-05) | 0.55576 | 1,948 / 3,824 | **50.94%** | 0 |
+| Model / submission | Public LB | Private LB | Public Top % |
+|---|---:|---:|---:|
+| Historical submission 5080178 (2017-07-08) | 0.55833 | 0.54776 | **43.49%** |
+| Historical submission 5094866 (2017-07-10) | 0.55631 | 0.54957 | **49.27%** |
+| Historical submission 5322692 (2017-09-05) | 0.55576 | 0.54683 | **50.94%** |
 
-Reference: **2026-11-09T04:12:42Z**, **3,824 unique scored teams**. Ranks are score-equivalent comparisons with the dated public export, not awarded final ranks. Lower Top % is better. A zero tie count denotes an insertion position; ties occupy the shown interval.
+Public Top % uses the **2026-11-09 public leaderboard snapshot** (score-equivalent comparison, not an awarded final rank). [Detailed results](docs/results.md) · [Reference ranks, ties and calculation](docs/leaderboard-context.json).
 
-**OOF/holdout rank and Top %: not applicable. Private leaderboard rank and Top %: unavailable without a matching private reference population.** Internal validation and private scores remain separately reported in [detailed results](docs/results.md). [Reference data and calculation](docs/leaderboard-context.json).
+Private Top % is unavailable without a matched private leaderboard; OOF/holdout results have no leaderboard percentile.
 <!-- portfolio-results:end -->
 
 ## Which delays dominate the error?
@@ -33,8 +33,6 @@ The worst 211 of 4,209 retained OOF predictions contribute 63.69% of squared err
 The fixed baseline reaches **0.54849 pooled OOF R²**, with RMSE **8.51883**. Adding 16 SVD coordinates changes blend R² to **0.55007** and slightly worsens MAE; effects differ across estimators. Baseline Random Forest scores **0.55527**, stronger than either blend. The declared recipe is retained rather than optimizing weights against the reported OOF labels. [Controlled comparison](docs/modeling-study.md).
 
 All **60 saved pipelines** across the two recipes reconstruct their retained OOF and test predictions within the declared tolerance. Native artifacts are also verified through Docker and shared MLflow storage. A separate offline Kaggle CPU run reaches **0.54850 OOF R²**, reloads all 30 hosted models and delivers its verified bundle to the same tracker. [Validation receipt](docs/validation.json) · [Executed walkthrough](notebooks/01-method-and-rerun.ipynb).
-
-The historical account's best public score **0.55833** corresponds to approximately **top 43.49%** of the dated public leaderboard snapshot. The modern native figures above are OOF results, with no inferred leaderboard percentile. [Score context and limits](docs/results.md).
 
 ## Handling unseen configurations
 
@@ -52,6 +50,13 @@ The target has a long upper tail. A single maximum contributes about 4% of total
 
 ## Reproduce on CPU
 
+Start with the [executed walkthrough](notebooks/01-method-and-rerun.ipynb) for the data, model decisions and measured results. The [reproduction guide](docs/reproduction.md) contains the complete download, training, evaluation and artifact recipe.
+
+Use Python 3.12 or 3.13, authorized competition inputs and a fresh run directory.
+
+<details>
+<summary>Command-line reproduction</summary>
+
 ```bash
 uv sync --locked --group dev --group lab --group data --group tracking
 export MERCEDES_DATA_DIR=/absolute/path/outside/git/mercedes-benz
@@ -62,7 +67,7 @@ export MERCEDES_DATA_DIR=/absolute/path/outside/git/mercedes-benz
   --run-dir .local/runs/baseline
 ```
 
-Use authorized Kaggle inputs and a new run directory. Model configurations cap CPU threads at four. [The runbook](docs/reproduction.md) covers Kaggle CLI download, the matched projection recipe, model reload, tracking and prediction.
+</details>
 
 ## Docker, dev container and Kaggle
 
